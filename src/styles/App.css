@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  margin: auto 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  gap: 20%;
+  height: 80px;
+  background: linear-gradient(180deg, rgb(91, 71, 55) 0%, rgba(91, 71, 56, 0) 100%);
+  mix-blend-mode: hard-light;
+}
+
+.logo {
+  margin-right: 20px;
+}
+.logo a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar-item {
+  margin-right: 30px;
+}
+
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.search input {
+  padding: 5px;
+  width: 240px;
+  border-radius: 15px;
+  text-align: center;
+  border: none;
+  height: 20px;
+  background-color: rgba(211, 211, 211, 0.753);
+}
+
+.backGround {
+  height: 300vh;
+  background: url("../assets/Homepage.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  position: relative;
+}
+
+.genre-dropdown {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(204, 176, 141);
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  .genre-dropdown {
+    grid-template-columns: repeat(5, 1fr);
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.genre-dropdown li:hover {
+  background-color: bisque;
+}
+
+.genre-dropdown li {
+  list-style: none;
+}
+
+.genre-dropdown a {
+  color: black;
+  text-decoration: none;
+}
+
+.genre-dropdown li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(204, 176, 141);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* BAGIAN WELCOME CARD */
+
+.welcome {
+  background-color: bisque;
+  background: url("../assets/Welcome.png");
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.recommendation {
+  margin-top: 50px;
+}
+
+.recommendation h3 {
+  margin: 10px;
+}
+
+.recom-items img {
+  width: 90%;
+  height: 17.5em;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
