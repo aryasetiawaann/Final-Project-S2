@@ -3,7 +3,10 @@
   font-family: "Manrope", sans-serif;
   font-family: "Montserrat", sans-serif;
 }
-
+@font-face {
+  font-family: Indonesian-serif;
+  src: url(../assets/Indonesian-serif.ttf);
+}
 .container {
   margin: auto 10%;
 }
@@ -121,11 +124,53 @@
 }
 
 .recommendation h3 {
+  padding-left: 15px;
   margin: 10px;
+  color: white;
+}
+
+.recom-items {
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .recom-items img {
-  width: 90%;
-  height: 17.5em;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  height: calc(50vw / 2.7);
+  object-fit: fill;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+}
+
+.horizontal-scroller {
+  width: 100%;
+  padding: 16px;
+}
+
+.swiper-slide {
+  width: 300px;
+}
+
+.welcome {
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.welcome h2 {
+  padding-top: 30px;
+  margin-left: 50px;
+  font-family: "Indonesian-serif", sans-serif;
+  letter-spacing: 2px;
+  font-size: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.welcome p {
+  padding-top: 20px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-family: "montserrat", sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }

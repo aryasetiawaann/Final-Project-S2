@@ -1,7 +1,6 @@
 import "../styles/App.css";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +15,7 @@ function Recom() {
           api_key: process.env.REACT_APP_TMDB_KEY,
           language: "id-ID",
           with_original_language: "id",
+          sort_by: "popularity.desc",
         },
       })
       .then((response) => {
@@ -26,8 +26,15 @@ function Recom() {
 
   return (
     <div className="recommendation">
-      <h3>REKOMENDASI</h3>
-      <Swiper modules={[Navigation]} slidesPerView={6} navigation>
+      <h3>Rekomendasi</h3>
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={6}
+        navigation
+        style={{
+          "--swiper-navigation-color": "#ffff",
+        }}
+      >
         {movies.map((result, index) => {
           return (
             <SwiperSlide className="recom-items" key={index}>
