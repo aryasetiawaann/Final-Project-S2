@@ -19,7 +19,6 @@ function Recom() {
         },
       })
       .then((response) => {
-        console.log(response.data.results);
         getMovies(response.data.results);
       });
   }, []);
@@ -33,13 +32,17 @@ function Recom() {
         navigation
         style={{
           "--swiper-navigation-color": "#ffff",
+          paddingTop: "12px",
+          paddingBottom: "12px",
         }}
       >
         {movies.map((result, index) => {
           return (
             <SwiperSlide className="recom-items" key={index}>
-              <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} />
-              <p>{result.title}</p>
+              <button>
+                <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} />
+                <p>{result.title}</p>
+              </button>
             </SwiperSlide>
           );
         })}

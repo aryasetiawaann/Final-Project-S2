@@ -3,6 +3,7 @@ import Navbar from "./components/navbar";
 import Welcome from "./components/welcome";
 import Recom from "./components/recomendation";
 import Trailer from "./components/trailer";
+import GlassmorphicContainer from "./components/glassmorph";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         <Recom />
       </div>
       <div className="container">
-        <Trailer />
+        <GlassmorphicContainer>
+          <Trailer />
+        </GlassmorphicContainer>
       </div>
     </div>
   );

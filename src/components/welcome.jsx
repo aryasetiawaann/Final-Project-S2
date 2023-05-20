@@ -4,7 +4,7 @@ function Welcome() {
   return (
     <div className="welcome">
       <h2>selamat datang</h2>
-      <p>Bintara, Kritik Film Indonesia Tiada Tara</p>
+      <p>MATARA, Kritik Film Indonesia Tiada Tara</p>
     </div>
   );
 }

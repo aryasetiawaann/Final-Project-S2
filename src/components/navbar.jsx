@@ -13,7 +13,7 @@ function Navbar() {
         <div className="logo">
           <a href="#">
             {/* <img src="" /> */}
-            <h1>BINTARA</h1>
+            <h1>MATARA</h1>
           </a>
         </div>
         <ul className="navbar-menu">

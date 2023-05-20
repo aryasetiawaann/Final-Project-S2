@@ -8,29 +8,73 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 
 function Trailer() {
+  const [movies, getMovies] = useState([]);
+  const [trailer, getTrailer] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/movie/now_playing`, {
+        params: {
+          api_key: process.env.REACT_APP_TMDB_KEY,
+          language: "id-ID",
+          with_original_language: "id",
+          sort_by: "popularity.desc",
+        },
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        getMovies(response.data.results);
+      });
+  }, []);
+
+  useEffect(() => {
+    movies.map((result) => {
+      axios
+        .get(`${process.env.REACT_APP_BASE_URL}/movie/${result.id}`, {
+          params: {
+            api_key: process.env.REACT_APP_TMDB_KEY,
+            append_to_response: "videos",
+          },
+        })
+        .then((response) => {
+          console.log(response.data.videos.results[0]);
+          getTrailer(response.data.videos.results[0]);
+        });
+    });
+  }, [movies]);
+
   return (
-    <div className="horizontal-scroller">
-      <Swiper modules={[Scrollbar]} slidesPerView={3} scrollbar={{ draggable: true }}>
-        <SwiperSlide>
-          <img src="path/to/image1.jpg" alt="Trailer 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="path/to/image2.jpg" alt="Trailer 2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="path/to/image3.jpg" alt="Trailer 3" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="path/to/image3.jpg" alt="Trailer 4" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="path/to/image3.jpg" alt="Trailer 5" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="path/to/image3.jpg" alt="Trailer 6" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Swiper modules={[Scrollbar]} slidesPerView={3.5} scrollbar={{ draggable: true }}>
+      {movies.map((result, index) => {
+        if (result.backdrop_path != null) {
+          return (
+            <SwiperSlide key={index} className="trailer-items">
+              <img src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`} alt={result.title} />
+              <p>{result.title}</p>
+            </SwiperSlide>
+          );
+        }
+      })}
+    </Swiper>
+    //   <div className="trailer">
+    //   <Swiper
+    //     modules={[Navigation]}
+    //     slidesPerView={5}
+    //     navigation
+    //     style={{
+    //       "--swiper-navigation-color": "#ffff",
+    //     }}
+    //   >
+    //     {movies.map((result, index) => {
+    //       return (
+    //         <SwiperSlide className="trailer-items" key={index}>
+    //           <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} />
+    //           <p>{result.title}</p>
+    //         </SwiperSlide>
+    //       );
+    //     })}
+    //   </Swiper>
+
+    // </div>
   );
 }
 
