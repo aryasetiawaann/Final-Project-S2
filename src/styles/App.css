@@ -115,7 +115,9 @@
   background-position: center;
   background-size: cover;
   height: 250px;
-  border-radius: 5px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .recommendation {
@@ -159,20 +161,6 @@
   cursor: pointer;
 }
 
-.horizontal-scroller {
-  width: 100%;
-  padding: 16px;
-}
-
-.swiper-slide {
-  width: 300px;
-}
-
-.welcome {
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
 .welcome h2 {
   padding-top: 30px;
   margin-left: 50px;
@@ -205,10 +193,10 @@
   margin-top: 20px;
 }
 
-.trailer {
+/* .trailer {
   display: flex;
-  justify-content: center;
-}
+  justify-content: space-between;
+} */
 
 .trailerTxt h3 {
   padding-left: 18px;

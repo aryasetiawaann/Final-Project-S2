@@ -55,26 +55,6 @@ function Trailer() {
         }
       })}
     </Swiper>
-    //   <div className="trailer">
-    //   <Swiper
-    //     modules={[Navigation]}
-    //     slidesPerView={5}
-    //     navigation
-    //     style={{
-    //       "--swiper-navigation-color": "#ffff",
-    //     }}
-    //   >
-    //     {movies.map((result, index) => {
-    //       return (
-    //         <SwiperSlide className="trailer-items" key={index}>
-    //           <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} />
-    //           <p>{result.title}</p>
-    //         </SwiperSlide>
-    //       );
-    //     })}
-    //   </Swiper>
-
-    // </div>
   );
 }
 

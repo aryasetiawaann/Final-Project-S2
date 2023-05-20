@@ -12,8 +12,6 @@ function App() {
       <div className="container">
         <Welcome />
         <Recom />
-      </div>
-      <div className="container">
         <GlassmorphicContainer>
           <Trailer />
         </GlassmorphicContainer>
