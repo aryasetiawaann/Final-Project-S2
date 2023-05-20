@@ -43,13 +43,13 @@ function Trailer() {
   }, [movies]);
 
   return (
-    <Swiper modules={[Scrollbar]} slidesPerView={3.5} scrollbar={{ draggable: true }}>
+    <Swiper modules={[Scrollbar]} slidesPerView={3.5} scrollbar={{ draggable: true }} style={{ display: "flex", justifyContent: "space-evenly" }}>
       {movies.map((result, index) => {
         if (result.backdrop_path != null) {
           return (
-            <SwiperSlide key={index} className="trailer-items">
+            <SwiperSlide key={index} className="trailer-items" style={{ margin: "5px" }}>
               <img src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`} alt={result.title} />
-              <p>{result.title}</p>
+              <p style={{ paddingBottom: "25px" }}>{result.title}</p>
             </SwiperSlide>
           );
         }

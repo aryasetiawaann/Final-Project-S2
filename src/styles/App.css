@@ -181,22 +181,15 @@
 .containerTrailer {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  padding: 50px;
-  padding-bottom: 0px;
+  padding: 30px 18px 0 18px;
   backdrop-filter: blur(10px);
   margin: 0 auto;
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.15);
   text-align: center;
-  max-width: 1200px;
-  width: 90%;
+  width: 95%;
   margin-top: 20px;
 }
-
-/* .trailer {
-  display: flex;
-  justify-content: space-between;
-} */
 
 .trailerTxt h3 {
   padding-left: 18px;
@@ -205,13 +198,13 @@
 }
 
 .trailer-items img {
-  width: 95%;
-  height: calc(40vw / 3);
+  width: 98%;
+  height: calc(40vw / 3.1);
   object-fit: fill;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   border-radius: 7px;
 }
 
-.trailer-items p {
-  padding-bottom: 25px;
+.trailer-items img:hover {
+  cursor: pointer;
 }
