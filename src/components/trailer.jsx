@@ -37,10 +37,11 @@ function Trailer() {
         })
         .then((response) => {
           console.log(response.data.videos.results[0]);
-          getTrailer(response.data.videos.results[0]);
+          getTrailer((trailer) => [...trailer, response.data.videos.results[0]]);
         });
     });
   }, [movies]);
+
 
   return (
     <Swiper modules={[Scrollbar]} slidesPerView={3.5} scrollbar={{ draggable: true }} style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -48,7 +49,13 @@ function Trailer() {
         if (result.backdrop_path != null) {
           return (
             <SwiperSlide key={index} className="trailer-items" style={{ margin: "5px" }}>
-              <img src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`} alt={result.title} />
+              <img
+                onClick={() => {
+                  console.log(trailer[index].key);
+                }}
+                src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`}
+                alt={result.title}
+              />
               <p style={{ paddingBottom: "25px" }}>{result.title}</p>
             </SwiperSlide>
           );
