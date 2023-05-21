@@ -8,6 +8,7 @@ function Navbar() {
   };
 
   return (
+    <div>
     <nav className="navbar">
       <div className="navbar-menu">
         <div className="logo">
@@ -27,7 +28,19 @@ function Navbar() {
             <a href="#" onClick={toggleGenreDropdown}>
               Genre
             </a>
-            {isGenreOpen && (
+            
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-menu">
+        <ul className="navbar-menu">
+          <li className="search navbar-item">
+            <input type="text" placeholder="Cari Film..." />
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {isGenreOpen && (
               <ul className="genre-dropdown">
                 <li>
                   <a href="#">Aksi</a>
@@ -85,17 +98,7 @@ function Navbar() {
                 </li>
               </ul>
             )}
-          </li>
-        </ul>
-      </div>
-      <div className="navbar-menu">
-        <ul className="navbar-menu">
-          <li className="search navbar-item">
-            <input type="text" placeholder="Cari Film..." />
-          </li>
-        </ul>
-      </div>
-    </nav>
+    </div>
   );
 }
 
