@@ -4,18 +4,25 @@ import Welcome from "./components/welcome";
 import Recom from "./components/recomendation";
 import Trailer from "./components/trailer";
 import GlassmorphicContainer from "./components/glassmorph";
+import Slideshow from "./components/slideshow";
+import Throwback from "./components/throwback/throwback";
+import Footer from "./components/Footer/footer";
 
 function App() {
   return (
-    <div className="backGround">
-      <Navbar />
-      <div className="container">
-        <Welcome />
-        <Recom />
-        <GlassmorphicContainer>
-          <Trailer />
-        </GlassmorphicContainer>
+    <div>
+      <div className="backGround">
+        <Navbar />
+        <Slideshow />
+        <div className="container">
+          <Recom />
+          <GlassmorphicContainer>
+            <Trailer />
+          </GlassmorphicContainer>
+          <Throwback />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

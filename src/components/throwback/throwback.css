@@ -1,0 +1,40 @@
+.throwback {
+    margin-top: 50px;
+}
+  
+.throwback h3 {
+    padding-left: 15px;
+    margin: 10px;
+    color: white;
+}
+  
+  .throwback-items {
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .throwback-items button {
+    background: none;
+    border: none;
+    width: 105%;
+    transition: transform 0.3s ease;
+  }
+  
+  .throwback-items button:hover {
+    transform: scale(1.05);
+  }
+  
+  .throwback-items img {
+    width: 95%;
+    height: calc(50vw / 2.78);
+    object-fit: fill;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .throwback-items p {
+    cursor: pointer;
+  }

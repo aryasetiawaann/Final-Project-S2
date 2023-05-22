@@ -1,0 +1,25 @@
+.slideshow-container{
+  overflow: hidden;
+}
+
+.slideshow-wrapper {
+  width: 100vh;
+  height: 100vh;
+}
+
+.slick-slider {
+  height: 100%;
+}
+
+.slide-items{
+  height: 500px;
+  box-sizing: border-box;
+}
+
+.welcome {
+  background: url("../assets/Welcome.png");
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  color: white;
+}
