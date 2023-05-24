@@ -36,12 +36,11 @@ function Trailer() {
           },
         })
         .then((response) => {
-          console.log(response.data.videos.results[0]);
+          console.log(response.data.videos.results);
           getTrailer((trailer) => [...trailer, response.data.videos.results[0]]);
         });
     });
   }, [movies]);
-
 
   return (
     <Swiper modules={[Scrollbar]} slidesPerView={3.5} scrollbar={{ draggable: true }} style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -51,7 +50,9 @@ function Trailer() {
             <SwiperSlide key={index} className="trailer-items" style={{ margin: "5px" }}>
               <img
                 onClick={() => {
-                  console.log(trailer[index].key);
+                  if (trailer[index].key) {
+                    window.open(`https://www.youtube.com/watch?v=${trailer[index].key}`, "_blank");
+                  }
                 }}
                 src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`}
                 alt={result.title}

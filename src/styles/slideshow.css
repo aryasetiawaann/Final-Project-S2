@@ -1,9 +1,9 @@
-.slideshow-container{
+.slideshow-container {
   overflow: hidden;
 }
 
 .slideshow-wrapper {
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -11,7 +11,7 @@
   height: 100%;
 }
 
-.slide-items{
+.slide-items {
   height: 500px;
   box-sizing: border-box;
 }
@@ -22,4 +22,9 @@
   background-size: cover;
   height: 100%;
   color: white;
+}
+
+.next-slide {
+  background-color: rgba(0, 0, 0, 0.622);
+  height: 100%;
 }

@@ -1,28 +1,39 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
-
+  const [search, setSearch] = useState("");
   const toggleGenreDropdown = () => {
     setIsGenreOpen(!isGenreOpen);
   };
 
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      navigate("/Search", {state: `${search}`});
+    }
+  };
   return (
     <div>
       <nav className="navbar">
         <div className="navbar-menu">
           <div className="logo">
-            <a href="#">
-              {/* <img src="" /> */}
+            <a onClick={() => navigate("/")}>
               <h1>matara</h1>
             </a>
           </div>
           <ul className="navbar-menu">
             <li className="navbar-item">
-              <a href="#">Serial TV</a>
+              <a onClick={() => navigate("/SerialTV")}>Serial TV</a>
             </li>
             <li className="navbar-item">
-              <a href="#">Film</a>
+              <a onClick={() => navigate("/Film")}>Film</a>
             </li>
             <li className="navbar-item">
               <a href="#" onClick={toggleGenreDropdown}>
@@ -34,7 +45,7 @@ function Navbar() {
         <div className="navbar-menu">
           <ul className="navbar-menu">
             <li className="search navbar-item">
-              <input type="text" placeholder="Cari Film..." />
+              <input onChange={handleChange} onKeyDown={handleKeyDown} type="text" placeholder="Cari Film..." />
             </li>
           </ul>
         </div>

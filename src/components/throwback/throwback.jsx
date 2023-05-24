@@ -8,6 +8,8 @@ import axios from "axios";
 
 function Recom() {
   const [movies, getMovies] = useState([]);
+
+  const value = Math.floor(Math.random() * 5) + 1;
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/discover/movie`, {
@@ -18,6 +20,7 @@ function Recom() {
           sort_by: "popularity.desc",
           "primary_release_date.gte": "1990-01-01",
           "primary_release_date.lte": "2010-12-31",
+          page: value,
         },
       })
       .then((response) => {

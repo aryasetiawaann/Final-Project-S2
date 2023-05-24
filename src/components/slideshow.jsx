@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/slideshow.css";
-import Welcome from "./welcome";
 import Recom from "./recomendation";
 
 const Slideshow = () => {
@@ -39,7 +38,9 @@ const Slideshow = () => {
           </div>
         </div>
         <div className="slide-items">
-          <Recom />
+          <div className="next-slide">
+          {/* <Recom /> */}TEST SLIDESHOW
+          </div>
         </div>
       </Slider>
     </div>

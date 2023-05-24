@@ -1,10 +1,10 @@
-import "../styles/App.css";
-import "swiper/css";
-import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
+import "../styles/App.css";
+import "swiper/css";
+import "swiper/css/navigation";
 
 function Recom() {
   const [movies, getMovies] = useState([]);
