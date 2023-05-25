@@ -5,6 +5,8 @@ import GlassmorphicContainer from "../components/glassmorph";
 import Slideshow from "../components/slideshow";
 import Throwback from "../components/throwback/throwback";
 import Footer from "../components/Footer/footer";
+import TrailerPopUp from "../components/trailerPopUp";
+
 
 export default function Homepage() {
   return (

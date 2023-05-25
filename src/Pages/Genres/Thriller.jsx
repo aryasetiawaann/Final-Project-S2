@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Thriller(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Thriller</h1>
+        </div>
     )
 }

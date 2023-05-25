@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Horor(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Horor</h1>
+        </div>
     )
 }

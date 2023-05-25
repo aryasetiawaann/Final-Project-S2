@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Musik(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Musik</h1>
+        </div>
     )
 }

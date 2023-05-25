@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Perang(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Perang</h1>
+        </div>
     )
 }

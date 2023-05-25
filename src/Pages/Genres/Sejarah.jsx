@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Sejarah(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Sejarah</h1> 
+        </div>
     )
 }

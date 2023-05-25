@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Misteri(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Misteri</h1>
+        </div>
     )
 }

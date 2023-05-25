@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Romansa(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Romansa</h1>
+        </div>
     )
 }

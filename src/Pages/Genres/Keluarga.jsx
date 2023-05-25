@@ -1,5 +1,10 @@
+import Navbar from "../../components/navbar";
+
 export default function Keluarga(){
     return(
-        <div></div>
+        <div>
+            <Navbar/>
+            <h1>Keluarga</h1>
+        </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/App.css"
 
 function Navbar() {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
@@ -53,58 +54,58 @@ function Navbar() {
       {isGenreOpen && (
         <ul className={"genre-dropdown"}>
           <li>
-            <a href="#">Aksi</a>
+            <a onClick={() => navigate("/Aksi")}>Aksi</a>
           </li>
           <li>
-            <a href="#">Petualangan</a>
+            <a onClick={() => navigate("/Petualangan")}>Petualangan</a>
           </li>
           <li>
-            <a href="#">Animasi</a>
+            <a onClick={() => navigate("/Animasi")}>Animasi</a>
           </li>
           <li>
-            <a href="#">Komedi</a>
+            <a onClick={() => navigate("/Komedi")}>Komedi</a>
           </li>
           <li>
-            <a href="#">Kejahatan</a>
+            <a onClick={() => navigate("/Kejahatan")}>Kejahatan</a>
           </li>
           <li>
-            <a href="#">Dokumenter</a>
+            <a onClick={() => navigate("/Dokumenter")}>Dokumenter</a>
           </li>
           <li>
-            <a href="#">Drama</a>
+            <a onClick={() => navigate("/Drama")}>Drama</a>
           </li>
           <li>
-            <a href="#">Keluarga</a>
+            <a onClick={() => navigate("/Keluarga")}>Keluarga</a>
           </li>
           <li>
-            <a href="#">Fantasi</a>
+            <a onClick={() => navigate("/Fantasi")}>Fantasi</a>
           </li>
           <li>
-            <a href="#">Sejarah</a>
+            <a onClick={() => navigate("/Sejarah")}>Sejarah</a>
           </li>
           <li>
-            <a href="#">Horor</a>
+            <a onClick={() => navigate("/Horor")}>Horor</a>
           </li>
           <li>
-            <a href="#">Musik</a>
+            <a onClick={() => navigate("/Musik")}>Musik</a>
           </li>
           <li>
-            <a href="#">Misteri</a>
+            <a onClick={() => navigate("/Misteri")}>Misteri</a>
           </li>
           <li>
-            <a href="#">Romansa</a>
+            <a onClick={() => navigate("/Romansa")}>Romansa</a>
           </li>
           <li>
-            <a href="#">Fiksi Ilmiah</a>
+            <a onClick={() => navigate("/FiksiIlmiah")}>Fiksi Ilmiah</a>
           </li>
           <li>
-            <a href="#">Film TV</a>
+            <a onClick={() => navigate("/FilmTv")}>Film TV</a>
           </li>
           <li>
-            <a href="#">Thriller</a>
+            <a onClick={() => navigate("/Thriller")}>Thriller</a>
           </li>
           <li>
-            <a href="#">Perang</a>
+            <a onClick={() => navigate("/Perang")}>Perang</a>
           </li>
         </ul>
       )}

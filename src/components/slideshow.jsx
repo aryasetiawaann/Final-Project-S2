@@ -1,50 +1,61 @@
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "../styles/slideshow.css";
-import Recom from "./recomendation";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
 
-const Slideshow = () => {
-  const sliderRef = useRef(null);
+function Slideshow() {
+  const [movies, setMovies] = useState([]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    ref: sliderRef,
-  };
-
-  const nextSlide = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const prevSlide = () => {
-    sliderRef.current.slickPrev();
-  };
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/movie/now_playing`, {
+        params: {
+          api_key: process.env.REACT_APP_TMDB_KEY,
+          language: "id-ID",
+          with_original_language: "id",
+          sort_by: "popularity.desc",
+        },
+      })
+      .then((response) => {
+        console.log(response.data.results);
+        setMovies(response.data.results);
+      });
+  }, []);
 
   return (
-    <div className="slideshow-container">
-      <Slider {...settings}>
-        <div className="slide-items">
-          <div className="welcome">
-            <h2>selamat datang</h2>
-            <p>MATARA, Kritik Film Indonesia Tiada Tara</p>
+    <Swiper
+      spaceBetween={0}
+      slidesPerView={1}
+      autoplay={{ delay: 1000 }}
+      pagination={{ clickable: true }}
+    >
+      {movies.map((movie, index) => (
+        <SwiperSlide key={index}>
+          <div className="slideshow-item">
+            <div
+              className="slideshow-backdrop"
+              style={{
+                backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+              }}
+            ></div>
+            <div className="slideshow-content">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                alt={movie.title}
+                className="slideshow-poster"
+              />
+              <div className="slideshow-info">
+                <h2 className="slideshow-title">{movie.title}</h2>
+                <p className="slideshow-overview">{movie.overview}</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="slide-items">
-          <div className="next-slide">
-          {/* <Recom /> */}TEST SLIDESHOW
-          </div>
-        </div>
-      </Slider>
-    </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
-};
+}
 
 export default Slideshow;
