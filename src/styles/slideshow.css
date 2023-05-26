@@ -1,5 +1,8 @@
 .slideshow-container {
   overflow: hidden;
+  width: 99%;
+  border-radius: 5px;
+  margin: 0 auto;
 }
 
 .slideshow-wrapper {
@@ -49,3 +52,16 @@
   margin-right: 500px;
   color: rgba(218, 218, 218, 0.704);
 }
+
+.youtube-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.youtube-logo {
+  width: 40px;
+  height: 40px;
+}
+

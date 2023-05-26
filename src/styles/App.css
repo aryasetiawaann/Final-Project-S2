@@ -115,7 +115,8 @@ body {
 }
 
 .backGround {
-  height: 285vh;
+  /* height: 285vh; */
+  padding-bottom: 80px;
   background: url("../assets/Homepage.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -159,12 +160,26 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out;
+}
+
+.recom-items img:hover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
 }
 
 .recom-items p {
   cursor: pointer;
   font-weight: 600;
-  color: rgb(12, 12, 12);
+  color: rgba(0, 0, 0, 0.397);
+  font-size: 15px;
+}
+
+.recom-items h4 {
+  margin-top: 7.5px;
+  color: rgb(0, 0, 0);
 }
 
 .welcome h2 {

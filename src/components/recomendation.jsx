@@ -1,35 +1,42 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
+import { format } from "date-fns";
 import "../styles/App.css";
 import "swiper/css";
 import "swiper/css/navigation";
 
 function Recom() {
   const [movies, setMovies] = useState([]);
+  const randomPage = Math.floor(Math.random() * 7) + 1;
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
 
+  const navigate = useNavigate();
   useEffect(() => {
-    const randomPage = Math.floor(Math.random() * 100) + 1;
 
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/discover/movie`, {
-        params: {
-          api_key: process.env.REACT_APP_TMDB_KEY,
-          language: "id-ID",
-          with_original_language: "id",
-          sort_by: "popularity.desc",
-          page: randomPage,
-        },
-      })
-      .then((response) => {
-        const filteredMovies = response.data.results.filter(
-          (movie) => movie.poster_path
-        );
-        setMovies(filteredMovies);
-      });
-  }, []);
+    .get(`${process.env.REACT_APP_BASE_URL}/discover/movie`, {
+      params: {
+        api_key: process.env.REACT_APP_TMDB_KEY,
+        language: "id-ID",
+        with_original_language: "id",
+        sort_by: "popularity.desc",
+        "primary_release_date.gte": `${currentYear - 4}-01-01`, 
+        "primary_release_date.lte": `${currentYear}-12-31`, 
+        "vote_average.gte": 7.0, 
+        page: randomPage,
+      },
+    })
+    .then((response) => {
+      const filteredMovies = response.data.results.filter((movie) => movie.poster_path);
+      setMovies(filteredMovies);
+    });
+}, []);
+
+
 
   return (
     <div className="recommendation">
@@ -45,15 +52,16 @@ function Recom() {
         }}
       >
         {movies.map((result, index) => {
+          const releaseDate = new Date(result.release_date);
+          const formattedDate = format(releaseDate, "MMM d, yyyy");
+
           return (
             <SwiperSlide className="recom-items" key={index}>
-              <Link to={`/movie/${result.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                  alt={result.title}
-                />
-                <p>{result.title}</p>
-              </Link>
+              <img onClick={() => {
+                navigate("/movie", {state: result.id});
+              }} src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt={result.title} />
+              <h4>{result.title}</h4>
+              <p>{formattedDate}</p>
             </SwiperSlide>
           );
         })}

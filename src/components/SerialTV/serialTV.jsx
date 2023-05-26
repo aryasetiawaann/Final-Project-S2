@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 
@@ -10,6 +11,7 @@ function SerialTV() {
   const [series, setSeries] = useState([]);
 
   const value = Math.floor(Math.random() * 5) + 1;
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/discover/tv`, {
@@ -22,7 +24,7 @@ function SerialTV() {
         },
       })
       .then((response) => {
-        console.log("Throwback => ", response.data.results);
+        console.log("TV => ", response.data.results);
         setSeries(response.data.results);
       });
   }, []);
@@ -45,8 +47,10 @@ function SerialTV() {
         {filteredSeries.map((result, index) => (
           <SwiperSlide className="throwback-items" key={index}>
             <button>
-              {result.poster_path && <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt={result.name} />}
-              <p>{result.name}</p>
+              {result.poster_path && <img onClick={() => {
+                navigate("/serialtv", {state: result.id});
+              }} src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt={result.name} />}
+              <h4>{result.name}</h4>
             </button>
           </SwiperSlide>
         ))}

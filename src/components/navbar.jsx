@@ -31,13 +31,13 @@ function Navbar() {
           </div>
           <ul className="navbar-menu">
             <li className="navbar-item">
-              <a onClick={() => navigate("/SerialTV")}>Serial TV</a>
+              <a>Serial TV</a>
             </li>
             <li className="navbar-item">
-              <a onClick={() => navigate("/Film")}>Film</a>
+              <a>Film</a>
             </li>
             <li className="navbar-item">
-              <a href="#" onClick={toggleGenreDropdown}>
+              <a onClick={toggleGenreDropdown}>
                 Genre
               </a>
             </li>
@@ -54,58 +54,79 @@ function Navbar() {
       {isGenreOpen && (
         <ul className={"genre-dropdown"}>
           <li>
-            <a onClick={() => navigate("/Aksi")}>Aksi</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 28});
+              }}>Aksi</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Petualangan")}>Petualangan</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 12});
+              }}>Petualangan</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Animasi")}>Animasi</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 16});
+              }}>Animasi</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Komedi")}>Komedi</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 35});
+              }}>Komedi</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Kejahatan")}>Kejahatan</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 80});
+              }}>Kejahatan</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Dokumenter")}>Dokumenter</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 99});
+              }}>Dokumenter</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Drama")}>Drama</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 18});
+              }}>Drama</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Keluarga")}>Keluarga</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 10751});
+              }}>Keluarga</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Fantasi")}>Fantasi</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 14});
+              }}>Fantasi</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Sejarah")}>Sejarah</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 36});
+              }}>Sejarah</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Horor")}>Horor</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 27});
+              }}>Horor</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Musik")}>Musik</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 10402});
+              }}>Musik</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Misteri")}>Misteri</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 9648});
+              }}>Misteri</a>
           </li>
           <li>
-            <a onClick={() => navigate("/Romansa")}>Romansa</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 10749});
+              }}>Romansa</a>
           </li>
           <li>
-            <a onClick={() => navigate("/FiksiIlmiah")}>Fiksi Ilmiah</a>
-          </li>
-          <li>
-            <a onClick={() => navigate("/FilmTv")}>Film TV</a>
-          </li>
-          <li>
-            <a onClick={() => navigate("/Thriller")}>Thriller</a>
-          </li>
-          <li>
-            <a onClick={() => navigate("/Perang")}>Perang</a>
+            <a onClick={() => {
+                navigate("/genre", {state: 878});
+              }}>Fiksi Ilmiah</a>
           </li>
         </ul>
       )}
