@@ -54,6 +54,7 @@ function App() {
         <Route path="/Thriller" element={<Thriller/>}/>
       </Routes>
     </Router>
+    
   
   );
 }

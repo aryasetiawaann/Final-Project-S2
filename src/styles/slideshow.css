@@ -28,3 +28,24 @@
   background-color: rgba(0, 0, 0, 0.622);
   height: 100%;
 }
+
+.slideshow-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 50%, rgb(140, 114, 94) 100%);
+}
+
+.slideshow-rate {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.slideshow-overview {
+  margin-top: 10px;
+  margin-right: 500px;
+  color: rgba(218, 218, 218, 0.704);
+}

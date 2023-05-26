@@ -6,7 +6,7 @@ import Slideshow from "../components/slideshow";
 import Throwback from "../components/throwback/throwback";
 import Footer from "../components/Footer/footer";
 import TrailerPopUp from "../components/trailerPopUp";
-
+import SerialTV from "../components/SerialTV/serialTV";
 
 export default function Homepage() {
   return (
@@ -20,6 +20,7 @@ export default function Homepage() {
             <Trailer />
           </GlassmorphicContainer>
           <Throwback />
+          <SerialTV />
         </div>
       </div>
       <Footer />

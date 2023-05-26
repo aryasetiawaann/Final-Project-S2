@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
@@ -7,8 +8,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 function Recom() {
-  const [movies, getMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
+    const randomPage = Math.floor(Math.random() * 100) + 1;
+
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/discover/movie`, {
         params: {
@@ -16,10 +20,14 @@ function Recom() {
           language: "id-ID",
           with_original_language: "id",
           sort_by: "popularity.desc",
+          page: randomPage,
         },
       })
       .then((response) => {
-        getMovies(response.data.results);
+        const filteredMovies = response.data.results.filter(
+          (movie) => movie.poster_path
+        );
+        setMovies(filteredMovies);
       });
   }, []);
 
@@ -39,10 +47,13 @@ function Recom() {
         {movies.map((result, index) => {
           return (
             <SwiperSlide className="recom-items" key={index}>
-              <button>
-                <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} />
+              <Link to={`/movie/${result.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                  alt={result.title}
+                />
                 <p>{result.title}</p>
-              </button>
+              </Link>
             </SwiperSlide>
           );
         })}
