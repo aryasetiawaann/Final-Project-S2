@@ -54,146 +54,141 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-menu">
-          
-            <li className="search">
-              <input onChange={handleChange} onKeyDown={handleKeyDown} type="text" placeholder="Cari Film..." />
-            </li>
-          
+          <li className="search">
+            <input onChange={handleChange} onKeyDown={handleKeyDown} type="text" placeholder="Cari Film..." />
+          </li>
         </div>
       </nav>
       {isGenreOpen && (
         <ul className={"genre-dropdown"}>
-          <li>
-            <a
-              onClick={() => {
-                navigate("/genre", { state: 28 });
-              }}
-            >
-              Aksi
-            </a>
+          <li
+            onClick={() => {
+              navigate("/genre", { state: 28 });
+            }}
+          >
+            <a>Aksi</a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li  onClick={() => {
                 navigate("/genre", { state: 12 });
-              }}
+              }}>
+            <a
             >
               Petualangan
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 16 });
-              }}
+              }}>
+            <a
+              
             >
               Animasi
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 35 });
-              }}
+              }}>
+            <a
+              
             >
               Komedi
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li  onClick={() => {
                 navigate("/genre", { state: 80 });
-              }}
+              }}>
+            <a
+             
             >
               Kejahatan
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 99 });
-              }}
+              }}>
+            <a
+              
             >
               Dokumenter
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 18 });
-              }}
+              }}>
+            <a
+              
             >
               Drama
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li  onClick={() => {
                 navigate("/genre", { state: 10751 });
-              }}
+              }}>
+            <a
+             
             >
               Keluarga
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 14 });
-              }}
+              }}>
+            <a
+              
             >
               Fantasi
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 36 });
-              }}
+              }}>
+            <a
+              
             >
               Sejarah
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 27 });
-              }}
+              }}>
+            <a
+              
             >
               Horor
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 10402 });
-              }}
+              }}>
+            <a
+              
             >
               Musik
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 9648 });
-              }}
+              }}>
+            <a
+              
             >
               Misteri
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li onClick={() => {
                 navigate("/genre", { state: 10749 });
-              }}
+              }}>
+            <a
+              
             >
               Romansa
             </a>
           </li>
-          <li>
-            <a
-              onClick={() => {
+          <li  onClick={() => {
                 navigate("/genre", { state: 878 });
-              }}
+              }}>
+            <a
+             
             >
               Fiksi Ilmiah
             </a>

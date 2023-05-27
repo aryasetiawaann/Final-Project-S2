@@ -22,7 +22,6 @@ export default function Search() {
           },
         })
         .then((response) => {
-          console.log("SEARCH", response.data.results);
           getMovies(response.data.results);
         });
     }
@@ -39,25 +38,30 @@ export default function Search() {
   return (
     <div>
       <Navbar />
-      <div className="container1" style={{minHeight: "100vh"}} >
-        <h1 style={{textAlign: "center"}}>Hasil Pencarian</h1>
+      <div className="container1" style={{ minHeight: "100vh" }}>
+        <h1 style={{ textAlign: "center" }}>Hasil Pencarian</h1>
         <div className="item-list">
+          {movies.length === 0 && <p className="no-poster-message">Tidak ada Gambar tersedia</p>}
           {movies.map((result, index) => {
             if (result.original_language === "id") {
               return (
                 <div key={index} className="item">
-                  <img
-                    onClick={() => {
-                      if (result.media_type == "tv") {
-                        navigate("/serialtv", { state: result.id });
-                      } else if (result.media_type == "movie") {
-                        navigate("/movie", { state: result.id });
-                      }
-                    }}
-                    src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                    alt={result.title}
-                    className="poster1"
-                  />
+                  {result.poster_path ? (
+                    <img
+                      onClick={() => {
+                        if (result.media_type === "tv") {
+                          navigate("/serialtv", { state: result.id });
+                        } else if (result.media_type === "movie") {
+                          navigate("/movie", { state: result.id });
+                        }
+                      }}
+                      src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                      alt={result.title}
+                      className="poster1"
+                    />
+                  ) : (
+                    <p className="no-poster-message">Tidak ada Gambar tersedia</p>
+                  )}
                   <h1 className="title">{result.title ? result.title : result.name}</h1>
                 </div>
               );

@@ -12,29 +12,41 @@ h1 {
 }
 
 .item-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: start;
+  gap: 7%;
 }
 
 .item {
+  width: 13em;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   text-align: center;
 }
 
 .poster1 {
-  width: 100%;
-  height: auto;
+  height: calc(50vh / 1.4);
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-out;
-  justify-content: center;
+}
+
+@media (max-width: 770px) {
+  .poster1{
+    height: 300px;
+  }
+  .item-list{
+    justify-content: center;
+    gap: 5%;
+  }
+
 }
 
 .poster1:hover {
