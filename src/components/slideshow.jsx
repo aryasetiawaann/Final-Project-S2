@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate } from "react-router-dom";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
 import axios from "axios";
-import "../styles/slideshow.css"; 
+import "../styles/slideshow.css";
 
 SwiperCore.use([Autoplay, Pagination]);
 
 function Slideshow() {
   const [movies, setMovies] = useState([]);
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/movie/top_rated`, {
@@ -27,7 +29,7 @@ function Slideshow() {
   }, []);
 
   const filteredMovies = movies.filter((movie) => movie.backdrop_path && movie.overview).slice(0, 4);
-  
+
   return (
     <div className="slideshow-container">
       <Swiper spaceBetween={0} slidesPerView={1} loop autoplay={{ delay: 3000, disableOnInteraction: false }}>
@@ -42,7 +44,15 @@ function Slideshow() {
               ></div>
               <div className="slideshow-content">
                 <div className="slideshow-poster-container">
-                  <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={movie.title} className="slideshow-poster" />
+                  <img
+                    onClick={() => {
+                      navigate("/movie", { state: movie.id });
+                    }}
+                    src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                    alt={movie.title}
+                    className="slideshow-poster"
+                    style={{ cursor: "pointer" }}
+                  />
                 </div>
                 <div className="slideshow-info">
                   <h2 className="slideshow-title">{movie.title}</h2>

@@ -1,36 +1,77 @@
 .Footer {
   background-color: rgb(53, 40, 33);
-  height: 20rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
   gap: 5px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .kiri {
   background-color: rgb(53, 40, 33);
+  width: 50%;
 }
 
 .kanan {
+  padding-left: 30%;
   background-color: rgb(53, 40, 33);
+  width: 50%;
 }
 
 .AboutUS h2 {
   color: white;
-  padding-top: 30px;
   font-size: 20px;
-  padding-left: 250px;
+  padding: 10px 0;
+  text-align: center;
 }
 
 .Footer h3 {
   font-size: 40px;
-  padding-top: 30px;
-  margin-left: 40px;
+  padding: 10px 0;
   font-family: "Indonesian-serif", sans-serif;
   color: rgb(218, 218, 218);
 }
+
 .Footer p {
-  padding-top: 20px;
+  padding: 10px 0;
   color: rgb(212, 212, 212);
-  margin-left: 40px;
+}
+
+/* Responsive Adjustments */
+@media screen and (min-width: 768px) {
+  .Footer {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    padding: 20px 40px;
+  }
+
+  .AboutUS h2 {
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .kiri,
+  .kanan {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .Footer {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 80px;
+  }
+}
+
+@media (max-width: 768px){
+  .Footer{
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  .kanan{
+    padding-left: 0;
+  }
 }

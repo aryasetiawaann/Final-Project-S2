@@ -1,0 +1,42 @@
+.cast-card {
+    margin-top: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(61, 36, 6, 0.441);
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .cast-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  
+  .cast-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .cast-name {
+    font-weight: bold;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .cast-card {
+      margin-right: 10px;
+    }
+  
+    .cast-image {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  

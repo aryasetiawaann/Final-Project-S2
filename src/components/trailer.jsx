@@ -78,11 +78,22 @@ function Trailer() {
     <div>
       <Swiper
         modules={[Scrollbar]}
-        slidesPerView={3.5}
+        slidesPerView={1}
         scrollbar={{ draggable: true }}
         style={{
           display: "flex",
           justifyContent: "space-evenly",
+        }}
+        breakpoints={{
+          820: {
+            slidesPerView: 1.5,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 3.5,
+          },
         }}
       >
         {movies.map((result) => {
@@ -109,7 +120,6 @@ function Trailer() {
           return null;
         })}
       </Swiper>
-      {}
       {selectedTrailer && (
         <div className="modal" onClick={handleClickOutside}>
           <div className="modal-content" ref={modalRef}>

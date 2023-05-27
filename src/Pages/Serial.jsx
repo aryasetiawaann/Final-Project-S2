@@ -52,8 +52,7 @@ export default function NSerial() {
     <div>
       <Navbar />
       <div style={{minHeight: "100vh"}}>
-      <h1>TEST</h1>
-      <div>
+      <div className="navItem-container">
         {movies.map((result, index) => {
           return (
             <div key={index}>

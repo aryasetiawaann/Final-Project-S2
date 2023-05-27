@@ -10,6 +10,7 @@ import { format } from "date-fns";
 
 function Recom() {
   const [movies, getMovies] = useState([]);
+  const [slidesPerView, setSlidesPerView] = useState(6);
 
   const value = Math.floor(Math.random() * 10) + 1;
   const navigate = useNavigate();
@@ -27,17 +28,42 @@ function Recom() {
         },
       })
       .then((response) => {
-        const filteredMovies = response.data.results.filter((movie) => movie.poster_path);
-        getMovies(filteredMovies);
+        getMovies(response.data.results);
       });
   }, []);
+
+  const filteredMovies = movies.filter((movies) => movies.poster_path);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth <= 545) {
+        setSlidesPerView(2);
+      } else if (windowWidth <= 900) {
+        setSlidesPerView(3);
+      } else if (windowWidth <= 1200) {
+        setSlidesPerView(4);
+      } else if (windowWidth <= 1400) {
+        setSlidesPerView(5);
+      } else {
+        setSlidesPerView(6);
+      }
+    };
+
+    if (filteredMovies.length === 2) {
+      setSlidesPerView("auto");
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [filteredMovies.length]);
 
   return (
     <div className="throwback">
       <h3>Nostalgia</h3>
       <Swiper
         modules={[Navigation]}
-        slidesPerView={6}
+        slidesPerView={slidesPerView}
         navigation
         style={{
           "--swiper-navigation-color": "#ffff",
@@ -52,9 +78,13 @@ function Recom() {
           return (
             <SwiperSlide className="throwback-items" key={index}>
               <button>
-                <img onClick={() => {
-                navigate("/movie", {state: result.id});
-              }} src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt={result.title} />
+                <img
+                  onClick={() => {
+                    navigate("/movie", { state: result.id });
+                  }}
+                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                  alt={result.title}
+                />
               </button>
               <h4>{result.title}</h4>
               <p>{formattedDate}</p>

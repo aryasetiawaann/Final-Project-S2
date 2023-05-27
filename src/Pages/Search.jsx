@@ -40,7 +40,7 @@ export default function Search() {
     <div>
       <Navbar />
       <div className="container1" style={{minHeight: "100vh"}} >
-        <h1>Daftar Film</h1>
+        <h1 style={{textAlign: "center"}}>Hasil Pencarian</h1>
         <div className="item-list">
           {movies.map((result, index) => {
             if (result.original_language === "id") {

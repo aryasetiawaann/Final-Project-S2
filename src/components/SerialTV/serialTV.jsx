@@ -9,9 +9,11 @@ import axios from "axios";
 
 function SerialTV() {
   const [series, setSeries] = useState([]);
+  const [slidesPerView, setSlidesPerView] = useState(6);
 
   const value = Math.floor(Math.random() * 5) + 1;
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/discover/tv`, {
@@ -24,19 +26,42 @@ function SerialTV() {
         },
       })
       .then((response) => {
-        console.log("TV => ", response.data.results);
         setSeries(response.data.results);
       });
   }, []);
 
   const filteredSeries = series.filter((series) => series.origin_country.includes("ID") && series.poster_path);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth <= 545) {
+        setSlidesPerView(2);
+      } else if (windowWidth <= 900) {
+        setSlidesPerView(3);
+      } else if (windowWidth <= 1200) {
+        setSlidesPerView(4);
+      } else if (windowWidth <= 1400) {
+        setSlidesPerView(5);
+      } else {
+        setSlidesPerView(6);
+      }
+    };
+
+    if (filteredSeries.length === 2) {
+      setSlidesPerView("auto");
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [filteredSeries.length]);
+
   return (
-    <div className="throwback">
+    <div className="serialtv">
       <h3>Serial TV</h3>
       <Swiper
         modules={[Navigation]}
-        slidesPerView={6}
+        slidesPerView={slidesPerView}
         navigation
         style={{
           "--swiper-navigation-color": "#ffff",
@@ -45,11 +70,17 @@ function SerialTV() {
         }}
       >
         {filteredSeries.map((result, index) => (
-          <SwiperSlide className="throwback-items" key={index}>
+          <SwiperSlide className="serialtv-items" key={index}>
             <button>
-              {result.poster_path && <img onClick={() => {
-                navigate("/serialtv", {state: result.id});
-              }} src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt={result.name} />}
+              {result.poster_path && (
+                <img
+                  onClick={() => {
+                    navigate("/serialtv", { state: result.id });
+                  }}
+                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                  alt={result.name}
+                />
+              )}
               <h4>{result.name}</h4>
             </button>
           </SwiperSlide>
