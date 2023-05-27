@@ -3,6 +3,7 @@
   font-family: "Manrope", sans-serif;
   font-family: "Montserrat", sans-serif;
 }
+
 @font-face {
   font-family: Indonesian-serif;
   src: url(../assets/Indonesian-serif.ttf);
@@ -27,7 +28,7 @@ body {
 }
 
 .logo {
-  margin-right: 20px;
+  margin-right: 10%;
 }
 .logo a {
   text-decoration: none;
@@ -106,7 +107,7 @@ body {
 
 .search input {
   padding: 5px;
-  width: 240px;
+  width: 130%;
   border-radius: 15px;
   text-align: center;
   border: none;

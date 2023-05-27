@@ -31,7 +31,7 @@ function MovieDetail() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div style={{minHeight: "100vh"}}>
         <h2>{movie.name}</h2>
         <p>{movie.overview}</p>
         <p>Release Date: {movie.first_air_date}</p>

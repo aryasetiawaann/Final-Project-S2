@@ -6,7 +6,8 @@ import Search from "./Pages/Search";
 import About from "./Pages/About";
 import MovieDetail from "./components/moviedetail";
 import Genres from "./Pages/Genres";
-import All from "./Pages/All";
+import NFilm from "./Pages/Film";
+import NSerial from "./Pages/Serial";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/serialtv" element={<SerialTV/>}/>
-        <Route path="/all" element={<All/>}/>
+        <Route path="/film" element={<NFilm/>}/>
+        <Route path="/serial" element={<NSerial/>}/>
         <Route path="/genre" element={<Genres/>}/>
         <Route path="/movie" element={<MovieDetail/>}/>
         <Route path="/Search" element={<Search/>}/>

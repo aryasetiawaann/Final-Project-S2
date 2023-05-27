@@ -31,10 +31,14 @@ function Navbar() {
           </div>
           <ul className="navbar-menu">
             <li className="navbar-item">
-              <a>Serial TV</a>
+              <a onClick={() => {
+                navigate("/serial")
+              }}>Serial TV</a>
             </li>
             <li className="navbar-item">
-              <a>Film</a>
+              <a onClick={() => {
+                navigate("/film")
+              }}>Film</a>
             </li>
             <li className="navbar-item">
               <a onClick={toggleGenreDropdown}>

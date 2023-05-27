@@ -39,7 +39,7 @@ export default function Search() {
   return (
     <div>
       <Navbar />
-      <div className="container1">
+      <div className="container1" style={{minHeight: "100vh"}} >
         <h1>Daftar Film</h1>
         <div className="item-list">
           {movies.map((result, index) => {

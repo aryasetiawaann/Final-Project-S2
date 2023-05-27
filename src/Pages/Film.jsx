@@ -4,13 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer/footer";
 
-export default function Genres() {
+export default function NFilm() {
   const location = useLocation();
-  const [genre, getGenre] = useState(location?.state);
   const [movies, setMovies] = useState([]);
   const [page, getPage] = useState(1);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/discover/movie`, {
@@ -19,7 +18,6 @@ export default function Genres() {
           language: "id-ID",
           with_original_language: "id",
           sort_by: "popularity.desc",
-          with_genres: genre,
           page: page,
         },
       })
@@ -28,17 +26,10 @@ export default function Genres() {
         setMovies(filteredMovies);
         scrollToTop();
       });
-  }, [genre | page]);
+  }, [page]);
 
 
 
-  const setGenre = () => {
-    getGenre(location?.state);
-  };
-
-  if (location?.state !== genre) {
-    setGenre();
-  }
 
   const increase = () => {
     getPage((page) => page + 1);
@@ -61,7 +52,7 @@ export default function Genres() {
     <div>
       <Navbar />
       <div style={{minHeight: "100vh"}}>
-      <h1>Genres</h1>
+      <h1>TEST</h1>
       <div>
         {movies.map((result, index) => {
           return (

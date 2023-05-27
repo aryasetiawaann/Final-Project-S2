@@ -11,7 +11,7 @@ import SerialTV from "../components/SerialTV/serialTV";
 export default function Homepage() {
   return (
     <div>
-      <div className="backGround">
+      <div className="backGround" style={{minHeight: "100vh"}}>
         <Navbar />
         <Slideshow />
         <div className="container">
