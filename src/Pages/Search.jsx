@@ -39,13 +39,13 @@ export default function Search() {
     <div>
       <Navbar />
       <div className="container1" style={{ minHeight: "100vh" }}>
-        <h1 style={{ textAlign: "center" }}>Hasil Pencarian</h1>
-        <div className="item-list">
-          {movies.length === 0 && <p className="no-poster-message">Tidak ada Gambar tersedia</p>}
+        <h1 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "40%", borderRadius: "10px", margin: "0 auto 20px auto" }}>Hasil Pencarian</h1>
+        <div className="serial-items">
+          {movies.length === 0 && <p className="no-poster-message">Film tidak tersedia</p>}
           {movies.map((result, index) => {
             if (result.original_language === "id") {
               return (
-                <div key={index} className="item">
+                <div key={index} className="serial-item">
                   {result.poster_path ? (
                     <img
                       onClick={() => {
@@ -60,7 +60,9 @@ export default function Search() {
                       className="poster1"
                     />
                   ) : (
-                    <p className="no-poster-message">Tidak ada Gambar tersedia</p>
+                    <div className="not-found">
+                      <p>Gambar tidak tersedia</p>
+                    </div>
                   )}
                   <h1 className="title">{result.title ? result.title : result.name}</h1>
                 </div>

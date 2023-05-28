@@ -3,6 +3,8 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer/footer";
+import "../styles/App.css"
+import "../styles/search.css"
 
 export default function Genres() {
   const location = useLocation();
@@ -30,13 +32,12 @@ export default function Genres() {
       });
   }, [genre | page]);
 
-
-
   const setGenre = () => {
     getGenre(location?.state);
   };
 
   if (location?.state !== genre) {
+    getPage(1);
     setGenre();
   }
 
@@ -60,24 +61,40 @@ export default function Genres() {
   return (
     <div>
       <Navbar />
-      <div style={{minHeight: "100vh"}}>
-      <h1>Genres</h1>
-      <div>
-        {movies.map((result, index) => {
-          return (
-            <div key={index}>
-                <img onClick={() => {
-                navigate("/movie", {state: result.id});
-              }} src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}/>
-              <h1>{result.title}</h1>
-            </div>
-          );
-        })}
+      <h2 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "30%", borderRadius: "10px", margin: "0 auto" }}>Serial TV</h2>
+      <div className="serial-navbar-container" style={{ minHeight: "100vh" }}>
+        <h3>Page - {page}</h3>
+        <div className="serial-items">
+          {movies.map((result, index) => {
+            return (
+              <div key={index} className="serial-item">
+                {result.poster_path ? (
+                  <img
+                    onClick={() => {
+                      navigate("/movie", { state: result.id });
+                    }}
+                    src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                  />
+                ) : (
+                  <div className="not-found">
+                    <p>Gambar tidak tersedia</p>
+                  </div>
+                )}
+                <h1>{result.title}</h1>
+              </div>
+            );
+          })}
+        </div>
+        <div className="pagination-container">
+          <button onClick={decrease} className="pagination-button">
+            Prev
+          </button>
+          <button onClick={increase} className="pagination-button">
+            Next
+          </button>
+        </div>
       </div>
-      <button onClick={decrease}>Prev</button>
-      <button onClick={increase}>Next</button>
-      </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

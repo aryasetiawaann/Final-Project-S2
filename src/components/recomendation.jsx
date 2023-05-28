@@ -65,7 +65,7 @@ function Recom() {
       <h3>Rekomendasi</h3>
       <Swiper
         modules={[Navigation]}
-        slidesPerView={slidesPerView} 
+        slidesPerView={slidesPerView}
         navigation
         style={{
           "--swiper-navigation-color": "#ffff",
@@ -79,14 +79,20 @@ function Recom() {
 
           return (
             <SwiperSlide className="recom-items" key={index}>
-              <img
-                onClick={() => {
-                  navigate("/movie", { state: result.id });
-                }}
-                src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                alt={result.title}
-              />
-              <h4>{result.title}</h4>
+              {result.poster_path ? (
+                <img
+                  onClick={() => {
+                    navigate("/movie", { state: result.id });
+                  }}
+                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                  alt={result.title}
+                />
+              ) : (
+                <div className="not-found-home">
+                  <p>Gambar tidak tersedia</p>
+                </div>
+              )}
+              <h4 style={{ color: "white" }}>{result.title}</h4>
               <p>{formattedDate}</p>
             </SwiperSlide>
           );

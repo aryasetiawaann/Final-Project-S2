@@ -72,14 +72,18 @@ function SerialTV() {
         {filteredSeries.map((result, index) => (
           <SwiperSlide className="serialtv-items" key={index}>
             <button>
-              {result.poster_path && (
+              {result.poster_path ? (
                 <img
                   onClick={() => {
                     navigate("/serialtv", { state: result.id });
                   }}
                   src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                  alt={result.name}
+                  alt={result.title}
                 />
+              ) : (
+                <div className="not-found-home">
+                  <p>Gambar tidak tersedia</p>
+                </div>
               )}
               <h4>{result.name}</h4>
             </button>

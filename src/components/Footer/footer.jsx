@@ -6,16 +6,20 @@ function Footer() {
       <div className="kiri">
         <h3>matara</h3>
         <p>
-          ©2023 MATARA. Seluruh hak cipta. Semua video dan acara di platform ini adalah merek dagang dari, dan semua gambar dan konten terkait adalah milik dari, Matara Inc. Duplikasi dan salinannya
-          sangat dilarang. Seluruh hak cipta{" "}
+          Hello World! We are the MATARA team, students from the Faculty of Informatics, Informatics Major, Class of 2023. We are currently taking Introduction to Internet Technology course, and this
+          website is our final semester examination project. We use REACT JS to build this website.
         </p>
+        <h4>copyright © 2023</h4>
       </div>
       <div className="kanan">
         <div className="AboutUS">
-            <h2>AboutUs</h2>
+          <h2>AboutUs & Reach us in instagram </h2>
+          <p></p>
         </div>
         <div className="socialMedia">
-          <a href="" target="_blank" rel="noopener noreferrer"><img src="facebook.png" alt="" /></a>
+          <a href="" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/search.png" alt="" />
+          </a>
           <a href="" target="_blank" rel="noopener noreferrer"></a>
           <a href="" target="_blank" rel="noopener noreferrer"></a>
         </div>

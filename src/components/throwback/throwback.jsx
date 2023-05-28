@@ -78,6 +78,7 @@ function Recom() {
           return (
             <SwiperSlide className="throwback-items" key={index}>
               <button>
+                {result.poster_path ? (
                 <img
                   onClick={() => {
                     navigate("/movie", { state: result.id });
@@ -85,6 +86,11 @@ function Recom() {
                   src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
                   alt={result.title}
                 />
+              ) : (
+                <div className="not-found-home">
+                  <p>Gambar tidak tersedia</p>
+                </div>
+              )}
               </button>
               <h4>{result.title}</h4>
               <p>{formattedDate}</p>
