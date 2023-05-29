@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Switch  } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 import Homepage from "./Pages/Homepage";
 import SerialTV from "./Pages/SerialTv";

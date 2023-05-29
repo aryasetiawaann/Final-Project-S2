@@ -39,7 +39,9 @@ export default function Search() {
     <div>
       <Navbar />
       <div className="container1" style={{ minHeight: "100vh" }}>
-        <h1 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "40%", borderRadius: "10px", margin: "0 auto 20px auto" }}>Hasil Pencarian</h1>
+        <h1 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "50%", borderRadius: "10px", margin: "0 auto 20px auto", fontSize: "25px" }}>
+          Hasil Pencarian
+        </h1>
         <div className="serial-items">
           {movies.length === 0 && <p className="no-poster-message">Film tidak tersedia</p>}
           {movies.map((result, index) => {
@@ -60,7 +62,16 @@ export default function Search() {
                       className="poster1"
                     />
                   ) : (
-                    <div className="not-found">
+                    <div
+                      onClick={() => {
+                        if (result.media_type === "tv") {
+                          navigate("/serialtv", { state: result.id });
+                        } else if (result.media_type === "movie") {
+                          navigate("/movie", { state: result.id });
+                        }
+                      }}
+                      className="not-found"
+                    >
                       <p>Gambar tidak tersedia</p>
                     </div>
                   )}

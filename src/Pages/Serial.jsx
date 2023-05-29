@@ -1,10 +1,11 @@
+import "../styles/App.css";
+import "../styles/search.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer/footer";
-import "../styles/App.css";
-import "../styles/search.css";
+import Wayang from "../assets/wayang1.png";
 
 export default function NSerial() {
   const [movies, setMovies] = useState([]);
@@ -64,8 +65,13 @@ export default function NSerial() {
                     src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
                   />
                 ) : (
-                  <div className="not-found">
-                    <p>Gambar tidak tersedia</p>
+                  <div
+                    onClick={() => {
+                      navigate("/serialtv", { state: result.id });
+                    }}
+                    className="not-found"
+                  >
+                    <img src={Wayang} alt="Wayang" />
                   </div>
                 )}
                 <h1>{result.name}</h1>

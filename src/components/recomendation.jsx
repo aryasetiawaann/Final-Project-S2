@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import axios from "axios";
-import { format } from "date-fns";
 import "../styles/App.css";
 import "swiper/css";
 import "swiper/css/navigation";
+import axios from "axios";
+import { format } from "date-fns";
 
 function Recom() {
   const [movies, setMovies] = useState([]);
@@ -88,7 +88,12 @@ function Recom() {
                   alt={result.title}
                 />
               ) : (
-                <div className="not-found-home">
+                <div
+                  onClick={() => {
+                    navigate("/movie", { state: result.id });
+                  }}
+                  className="not-found-home"
+                >
                   <p>Gambar tidak tersedia</p>
                 </div>
               )}

@@ -7,6 +7,7 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import { format } from "date-fns";
+import Wayang from "../../assets/wayang1.png";
 
 function Recom() {
   const [movies, getMovies] = useState([]);
@@ -30,7 +31,7 @@ function Recom() {
       .then((response) => {
         getMovies(response.data.results);
       });
-  }, []);
+  }, [value]);
 
   const filteredMovies = movies.filter((movies) => movies.poster_path);
 
@@ -79,18 +80,23 @@ function Recom() {
             <SwiperSlide className="throwback-items" key={index}>
               <button>
                 {result.poster_path ? (
-                <img
-                  onClick={() => {
-                    navigate("/movie", { state: result.id });
-                  }}
-                  src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-                  alt={result.title}
-                />
-              ) : (
-                <div className="not-found-home">
-                  <p>Gambar tidak tersedia</p>
-                </div>
-              )}
+                  <img
+                    onClick={() => {
+                      navigate("/movie", { state: result.id });
+                    }}
+                    src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                    alt={result.title}
+                  />
+                ) : (
+                  <div
+                    onClick={() => {
+                      navigate("/movie", { state: result.id });
+                    }}
+                    className="not-found-home"
+                  >
+                    <img src={Wayang} alt="Wayang" />
+                  </div>
+                )}
               </button>
               <h4>{result.title}</h4>
               <p>{formattedDate}</p>

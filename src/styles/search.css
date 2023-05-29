@@ -65,17 +65,19 @@ h1 {
   border-radius: 5px;
   display: flex;
   text-align: center;
+  cursor: pointer;
   align-items: center;
   justify-content: center;
 }
 
-.not-found-home{
+.not-found-home {
   width: 95%;
   height: calc(50vw / 2.75);
   background-color: rgba(61, 36, 6, 0.441);
   border-radius: 5px;
   display: flex;
   text-align: center;
+  cursor: pointer;
   align-items: center;
   justify-content: center;
 }
@@ -85,7 +87,11 @@ h1 {
 }
 
 @media (max-width: 820px) {
-  .not-found-home{
+  .not-found-home {
     height: 240px;
+  }
+
+  .not-found {
+    height: calc(50vh / 1.5);
   }
 }

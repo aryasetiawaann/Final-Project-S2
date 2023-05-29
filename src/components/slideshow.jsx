@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
-import axios from "axios";
 import "../styles/slideshow.css";
+import axios from "axios";
 
 SwiperCore.use([Autoplay, Pagination]);
 

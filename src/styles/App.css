@@ -59,6 +59,11 @@ body {
 
 .navbar-item {
   margin-right: 30px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-item:hover {
+  transform: scale(1.2);
 }
 
 .navbar-item a {
@@ -143,6 +148,14 @@ body {
 }
 
 .backGround {
+  width: 100%;
+  background: url("../assets/Homepage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.backGround1 {
   width: 100%;
   padding-bottom: 80px;
   background: url("../assets/Homepage.png");
@@ -417,7 +430,6 @@ body {
   cursor: pointer;
 }
 
-
 .serial-item img:hover {
   transform: scale(1.05);
 }
@@ -473,6 +485,6 @@ body {
 
   .serial-item img {
     width: 95%;
-    height: calc(50vh / 1.4);
+    height: calc(50vh / 1.5);
   }
 }

@@ -36,6 +36,10 @@
   padding: 10px 0;
   color: rgb(212, 212, 212);
 }
+.link-style {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* Responsive Adjustments */
 @media screen and (min-width: 768px) {

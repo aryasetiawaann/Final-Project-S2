@@ -6,6 +6,7 @@ import { Navigation } from "swiper";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
+import Wayang from "../../assets/wayang1.png";
 
 function SerialTV() {
   const [series, setSeries] = useState([]);
@@ -28,7 +29,7 @@ function SerialTV() {
       .then((response) => {
         setSeries(response.data.results);
       });
-  }, []);
+  }, [value]);
 
   const filteredSeries = series.filter((series) => series.origin_country.includes("ID") && series.poster_path);
 
@@ -81,8 +82,13 @@ function SerialTV() {
                   alt={result.title}
                 />
               ) : (
-                <div className="not-found-home">
-                  <p>Gambar tidak tersedia</p>
+                <div
+                  onClick={() => {
+                    navigate("/serialtv", { state: result.id });
+                  }}
+                  className="not-found-home"
+                >
+                  <img src={Wayang} alt="Wayang" />
                 </div>
               )}
               <h4>{result.name}</h4>

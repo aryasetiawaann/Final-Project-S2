@@ -1,0 +1,68 @@
+.about-us {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.member-card {
+  width: 300px;
+  height: 500px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #b1998313;
+  background-image: url(../assets/wayang2.png);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: scale(1.05);
+}
+
+.member-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #d4d4d4;
+}
+
+.member-info h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.member-info p {
+  color: #fffcfc;
+  margin-bottom: 10px;
+}
+
+.member-info .quote {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.social-icons a {
+  color: #888;
+  margin-right: 10px;
+}
+
+.social-icons i {
+  font-size: 20px;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .member-card {
+    width: 100%;
+  }
+}
