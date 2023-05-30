@@ -31,7 +31,7 @@ function Recom() {
       .then((response) => {
         getMovies(response.data.results);
       });
-  }, [value]);
+  }, []);
 
   const filteredMovies = movies.filter((movies) => movies.poster_path);
 

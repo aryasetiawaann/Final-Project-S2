@@ -29,7 +29,7 @@ function SerialTV() {
       .then((response) => {
         setSeries(response.data.results);
       });
-  }, [value]);
+  }, []);
 
   const filteredSeries = series.filter((series) => series.origin_country.includes("ID") && series.poster_path);
 
