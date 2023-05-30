@@ -31,7 +31,7 @@ export default function Genres() {
         setMovies(filteredMovies);
         scrollToTop();
       });
-  }, [genre | page]);
+  }, [genre , page]);
 
   const setGenre = () => {
     getGenre(location?.state);
@@ -70,7 +70,7 @@ export default function Genres() {
             return (
               <div key={index} className="serial-item">
                 {result.poster_path ? (
-                  <img
+                  <img alt={result.title}
                     onClick={() => {
                       navigate("/movie", { state: result.id });
                     }}

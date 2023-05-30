@@ -20,11 +20,11 @@ function Footer() {
           </h2>
         </div>
         <div className="socialMedia">
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <img src="../assets/search.png" alt="" />
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer"></a>
-          <a href="" target="_blank" rel="noopener noreferrer"></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"></a>
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@ export default function NFilm() {
             return (
               <div key={index} className="serial-item">
                 {result.poster_path ? (
-                  <img
+                  <img alt={result.title}
                     onClick={() => {
                       navigate("/movie", { state: result.id });
                     }}

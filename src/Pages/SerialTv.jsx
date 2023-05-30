@@ -69,7 +69,7 @@ const MovieDetail = () => {
       </div>
       {trailerUrl && (
         <div className="trailer-container">
-          <iframe className="youtube-trailer" src={trailerUrl} allowFullScreen></iframe>
+          <iframe className="youtube-trailer" src={trailerUrl} title="Youtube Trailer" allowFullScreen></iframe>
         </div>
       )}
       {!trailerUrl && <p style={{textAlign: "center", fontWeight: "bolder", fontSize: "30px"}}>Cuplikan tidak tersedia</p>}

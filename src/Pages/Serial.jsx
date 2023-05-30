@@ -58,7 +58,7 @@ export default function NSerial() {
             return (
               <div key={index} className="serial-item">
                 {result.poster_path ? (
-                  <img
+                  <img alt={result.name}
                     onClick={() => {
                       navigate("/serialtv", { state: result.id });
                     }}
