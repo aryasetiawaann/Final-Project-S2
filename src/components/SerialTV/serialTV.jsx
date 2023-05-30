@@ -1,10 +1,10 @@
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./serialTV.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
-import { Navigation } from "swiper";
 import { useNavigate } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import Wayang from "../../assets/wayang1.png";
 

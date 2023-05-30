@@ -62,7 +62,7 @@ export default function Genres() {
   return (
     <div>
       <Navbar />
-      <h2 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "30%", borderRadius: "10px", margin: "0 auto" }}>Serial TV</h2>
+      <h2 style={{ textAlign: "center", padding: "20px", backgroundColor: "rgba(61, 36, 6, 0.441)", width: "30%", borderRadius: "10px", margin: "0 auto" }}>Genre</h2>
       <div className="serial-navbar-container" style={{ minHeight: "100vh" }}>
         <h3>Page - {page}</h3>
         <div className="serial-items">

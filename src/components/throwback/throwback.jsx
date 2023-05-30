@@ -1,10 +1,10 @@
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./throwback.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import { format } from "date-fns";
 import Wayang from "../../assets/wayang1.png";

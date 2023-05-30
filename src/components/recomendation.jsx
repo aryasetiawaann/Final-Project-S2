@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/App.css";
 import "swiper/css";
 import "swiper/css/navigation";
